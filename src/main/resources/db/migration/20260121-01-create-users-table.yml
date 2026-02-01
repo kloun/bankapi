@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://www.schemastore.org/liquibase-3.2.json
+
+databaseChangeLog:
+  - changeSet:
+      id: 20260121-01
+      author: Victor Kukshiev
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+                    defaultValue: "USER"

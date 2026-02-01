@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=https://www.schemastore.org/liquibase-3.2.json
+
+databaseChangeLog:
+  - changeSet:
+      id: 20260121-02
+      author: Victor Kukshiev
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: owner_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    # Определение внешнего ключа:
+                    foreignKeyName: fk_cards_users
+                    referencedTableName: users
+                    referencedColumnNames: id
+                    deleteCascade: true  
+              - column:
+                  name: balance
+                  type: decimal(19,2)
+                  constraints:
+                    nullable: false
+                  defaultValueNumeric: 0.00
+              - column:
+                  name: status
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+                  defaultValue: "ACTIVE"
+              - column:
+                  name: card_number
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiration_date
+                  type: date
+                  constraints:
+                    nullable: false

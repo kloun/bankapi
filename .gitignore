@@ -1,0 +1,37 @@
+### Java & Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# Если используете Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+### IDE (IntelliJ, VS Code, Eclipse) ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+### Logs & Temp ###
+*.log
+logs/
+temp/
+
+### OS & Docker ###
+.DS_Store
+Thumbs.db
+.docker/
+
+# Чувствительные данные (пароли, ключи)
+.env

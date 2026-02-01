@@ -1,0 +1,9 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog.yml
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG

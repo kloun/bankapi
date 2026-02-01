@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260131-01-seed-test-users
+      author: Victor Kukshiev
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  valueComputed: uuidv7() 
+              - column:
+                  name: username
+                  value: bcadmin
+              - column:
+                  name: password
+                  value: '$2a$10$9irvS40o8Rl0LotPEv3kh.YFsBTsCgapGtVe.u6rRF4K0bUOOfetS'
+              - column:
+                  name: role
+                  value: ADMIN
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  valueComputed: uuidv7()
+              - column:
+                  name: username
+                  value: bcuser
+              - column:
+                  name: password
+                  value: '$2a$10$9irvS40o8Rl0LotPEv3kh.YFsBTsCgapGtVe.u6rRF4K0bUOOfetS'
+              - column:
+                  name: role
+                  value: USER

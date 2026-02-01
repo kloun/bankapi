@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://www.schemastore.org/liquibase-3.2.json
+
+databaseChangeLog:
+  - changeSet:
+      id: 20260122-01
+      author: Victor Kukshiev
+      changes:
+        - createTable:
+            tableName: block_requests
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_blockrequests_users
+                    referencedTableName: users
+                    referencedColumnNames: id
+              - column:
+                  name: card_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_blockrequests_cards
+                    referencedTableName: cards
+                    referencedColumnNames: id
+              - column:
+                  name: created_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: approved_date
+                  type: timestamp
+                  constraints:
+                    nullable: true
+              - column:
+                  name: approved_by
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_blockrequests_users2
+                    referencedTableName: users
+                    referencedColumnNames: id

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>me.cetjs2</groupId>
+	<artifactId>bankcards</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bankcards</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-liquibase</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+		<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+    <!-- В SB4 JUnit 5 и Mockito подключаются автоматически -->
+</dependency>
+
+		<dependency>
+        	<groupId>io.jsonwebtoken</groupId>
+        	<artifactId>jjwt-api</artifactId>
+        	<version>0.12.6</version>
+    	</dependency>
+    	<dependency>
+   		    <groupId>io.jsonwebtoken</groupId>
+        	<artifactId>jjwt-impl</artifactId>
+        	<scope>runtime</scope>
+			<version>0.12.6</version>
+    	</dependency>
+    	<dependency>
+        	<groupId>io.jsonwebtoken</groupId>
+        	<artifactId>jjwt-jackson</artifactId>
+        	<scope>runtime</scope>
+			<version>0.12.6</version>
+    	</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-docker-compose</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-liquibase-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>3.0.1</version>
+   </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+    			<groupId>com.spotify.fmt</groupId>
+    			<artifactId>fmt-maven-plugin</artifactId>
+   				<version>2.25</version> <!-- Проверенная стабильная версия -->
+   				<executions>
+        			<execution>
+        				<?m2e execute onConfiguration,onIncremental?>
+            			<goals>
+                			<goal>format</goal> <!-- Будет форматировать код при каждой сборке -->
+            			</goals>
+        			</execution>
+    			</executions>
+			</plugin>
+			<plugin>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-maven-plugin</artifactId>
+    <version>1.4</version> <!-- версия для Spring Boot 3/4 -->
+    <executions>
+        <execution>
+            <id>integration-test</id>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <apiDocsUrl>http://localhost:8080/v3/api-docs.yaml</apiDocsUrl>
+        <outputFileName>openapi.yaml</outputFileName>
+        <outputDir>${project.basedir}/docs</outputDir>
+        <skip>false</skip>
+				<appStartTimeout>30000</appStartTimeout>
+    </configuration>
+</plugin>
+
+
+		</plugins>
+	</build>
+
+</project>
